@@ -27,17 +27,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
+import { ref, onMounted } from "vue";
+import EssentialLink, { EssentialLinkProps } from "components/EssentialLink.vue";
 
 defineOptions({
-  name: 'MainLayout'
+  name: "MainLayout"
 });
 
 const linksList: EssentialLinkProps[] = [
   {
-    title: 'Docs',
-    link: 'https://quasar.dev'
+    title: "Docs",
+    link: "https://quasar.dev"
   },
 ];
 
@@ -46,4 +46,8 @@ const leftDrawerOpen = ref(false);
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
+
+onMounted(async () => {
+  const { VITE_ACCESS_TOKEN, VITE_SPACE_ID } = import.meta.env
+})
 </script>
