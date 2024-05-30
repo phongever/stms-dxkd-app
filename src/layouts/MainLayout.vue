@@ -4,17 +4,13 @@
       <q-toolbar class="bg-grey-9">
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title>
-          Sóng to mặc sóng, đường xa kệ đường
-        </q-toolbar-title>
+        <q-toolbar-title> Sóng to mặc sóng, đường xa kệ đường </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label header>
-          Mục lục
-        </q-item-label>
+        <q-item-label header> Mục lục </q-item-label>
 
         <EssentialLink v-for="link in linksList" :key="link.title" v-bind="link" />
       </q-list>
@@ -28,17 +24,19 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { api } from "boot/axios"
-import EssentialLink, { EssentialLinkProps } from "components/EssentialLink.vue";
+// import { api } from "boot/axios";
+import EssentialLink, {
+  EssentialLinkProps,
+} from "components/EssentialLink.vue";
 
 defineOptions({
-  name: "MainLayout"
+  name: "MainLayout",
 });
 
 const linksList: EssentialLinkProps[] = [
   {
     title: "Docs",
-    link: "https://quasar.dev"
+    link: "https://quasar.dev",
   },
 ];
 
@@ -49,6 +47,6 @@ function toggleLeftDrawer() {
 }
 
 onMounted(async () => {
-  console.log(await api.get())
-})
+  // console.log(await api.get())
+});
 </script>

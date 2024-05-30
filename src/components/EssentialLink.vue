@@ -8,13 +8,13 @@
 
 <script setup lang="ts">
 defineOptions({
-  name: "EssentialLink"
+  name: "EssentialLink",
 });
 
 export interface EssentialLinkProps {
   title: string;
   link?: string;
-};
+}
 
 withDefaults(defineProps<EssentialLinkProps>(), {
   link: "#",
