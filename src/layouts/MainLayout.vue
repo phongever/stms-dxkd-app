@@ -28,6 +28,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { api } from "boot/axios"
 import EssentialLink, { EssentialLinkProps } from "components/EssentialLink.vue";
 
 defineOptions({
@@ -48,6 +49,6 @@ function toggleLeftDrawer() {
 }
 
 onMounted(async () => {
-  const { VITE_ACCESS_TOKEN, VITE_SPACE_ID } = import.meta.env
+  console.log(await api.get())
 })
 </script>
