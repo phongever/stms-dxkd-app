@@ -12,7 +12,7 @@
       <q-list>
         <q-item-label header> Mục lục </q-item-label>
 
-        <EssentialLink v-for="link in linksList" :key="link.title" v-bind="link" />
+        <ChapterLink v-for="link in linksList" :key="link.title" v-bind="link" />
       </q-list>
     </q-drawer>
 
@@ -25,15 +25,15 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 // import { api } from "boot/axios";
-import EssentialLink, {
-  EssentialLinkProps,
-} from "components/EssentialLink.vue";
+import ChapterLink, {
+  ChapterLinkProps,
+} from "components/ChapterLink.vue";
 
 defineOptions({
   name: "MainLayout",
 });
 
-const linksList: EssentialLinkProps[] = [
+const linksList: ChapterLinkProps[] = [
   {
     title: "Docs",
     link: "https://quasar.dev",

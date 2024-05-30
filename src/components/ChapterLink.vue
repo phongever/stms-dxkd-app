@@ -8,15 +8,15 @@
 
 <script setup lang="ts">
 defineOptions({
-  name: "EssentialLink",
+  name: "ChapterLink",
 });
 
-export interface EssentialLinkProps {
+export interface ChapterLinkProps {
   title: string;
   link?: string;
 }
 
-withDefaults(defineProps<EssentialLinkProps>(), {
+withDefaults(defineProps<ChapterLinkProps>(), {
   link: "#",
 });
 </script>
