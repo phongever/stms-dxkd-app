@@ -13,10 +13,8 @@ defineOptions({
 
 export interface ChapterLinkProps {
   title: string;
-  link?: string;
+  link: string;
 }
 
-withDefaults(defineProps<ChapterLinkProps>(), {
-  link: "#",
-});
+defineProps<ChapterLinkProps>();
 </script>

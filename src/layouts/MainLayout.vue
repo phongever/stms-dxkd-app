@@ -12,7 +12,7 @@
       <q-list>
         <q-item-label header> Mục lục </q-item-label>
 
-        <ChapterLink v-for="chapter in chaptersStore.chapterList" :key="chapter.title" v-bind="chapter" />
+        <ChapterLink v-for="chapter in linkList" :key="chapter.title" v-bind="chapter" />
       </q-list>
     </q-drawer>
 
@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useChaptersStore } from "stores/chapters";
 import ChapterLink from "components/ChapterLink.vue";
 import { useQuasar } from "quasar"
@@ -42,6 +42,8 @@ const chaptersStore = useChaptersStore();
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
+
+const linkList = computed(() => chaptersStore.chapterList.map(({ id, title }) => ({ title, link: `/chapters/${id}` })))
 
 onMounted(async () => {
   try {
