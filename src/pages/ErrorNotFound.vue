@@ -1,21 +1,11 @@
 <template>
-  <div
-    class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center"
-  >
+  <div class="fullscreen bg-grey-9 text-white text-center q-pa-md flex flex-center">
     <div>
-      <div style="font-size: 30vh">404</div>
+      <div style="font-size: 30vh">🙈</div>
 
-      <div class="text-h2" style="opacity: 0.4">Oops. Nothing here...</div>
+      <div class="text-h2">Không thấy gì hết!</div>
 
-      <q-btn
-        class="q-mt-xl"
-        color="white"
-        text-color="blue"
-        unelevated
-        to="/"
-        label="Go Home"
-        no-caps
-      />
+      <q-btn class="q-mt-xl" color="white" text-color="grey-9" unelevated to="/" label="Về trang chủ" no-caps />
     </div>
   </div>
 </template>

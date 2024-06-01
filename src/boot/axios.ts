@@ -8,16 +8,6 @@ declare module "@vue/runtime-core" {
   }
 }
 
-interface env {
-  VITE_ACCESS_TOKEN: string;
-  VITE_ENVIRONMENT_ID: string;
-  VITE_SPACE_ID: string;
-  VITE_BOOK_ID: string;
-}
-
-const { VITE_ACCESS_TOKEN, VITE_SPACE_ID, VITE_BOOK_ID, VITE_ENVIRONMENT_ID } =
-  import.meta.env as unknown as env;
-
 // Be careful when using SSR for cross-request state pollution
 // due to creating a Singleton instance here;
 // If any client changes this (global) instance, it might be a
@@ -25,7 +15,7 @@ const { VITE_ACCESS_TOKEN, VITE_SPACE_ID, VITE_BOOK_ID, VITE_ENVIRONMENT_ID } =
 // "export default () => {}" function below (which runs individually
 // for each client)
 const api = axios.create({
-  baseURL: `https://cdn.contentful.com/spaces/${VITE_SPACE_ID}/environments/${VITE_ENVIRONMENT_ID}/entries?access_token=${VITE_ACCESS_TOKEN}&sys.id=${VITE_BOOK_ID}`,
+  baseURL: "https://cdn.contentful.com",
 });
 
 export default boot(({ app }) => {
