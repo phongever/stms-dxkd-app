@@ -23,7 +23,7 @@ const chapter = ref<Chapter | undefined>({
 
 watch(() => route.params.id, (id) => {
   chapter.value = chaptersStore.chapterList.find(({ id: chapterId }) => chapterId === id)
-})
+}, { immediate: true })
 
 defineOptions({
   name: "ChapterPage",
