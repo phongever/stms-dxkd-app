@@ -43,7 +43,7 @@ function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
 
-const linkList = computed(() => chaptersStore.chapterList.map(({ id, title }) => ({ title, link: `/chapters/${id}` })))
+const linkList = computed(() => chaptersStore.chapterList.map(({ id, title }) => ({ title, link: `/#/chapters/${id}` })))
 
 onMounted(async () => {
   try {
