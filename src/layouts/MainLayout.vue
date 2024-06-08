@@ -10,6 +10,12 @@
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
+        <q-item clickable tag="a" href="#/">
+          <q-item-section>
+            <q-item-label>Trang chủ</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-separator />
         <q-item-label header> Mục lục </q-item-label>
 
         <ChapterLink v-for="chapter in linkList" :key="chapter.title" v-bind="chapter" />
@@ -23,17 +29,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
+import { ref, computed } from "vue";
 import { useChaptersStore } from "stores/chapters";
 import ChapterLink from "components/ChapterLink.vue";
-import { useQuasar } from "quasar"
-
 
 defineOptions({
   name: "MainLayout",
 });
-
-const $q = useQuasar()
 
 const leftDrawerOpen = ref(false);
 
@@ -44,15 +46,18 @@ function toggleLeftDrawer() {
 }
 
 const linkList = computed(() => chaptersStore.chapterList.map(({ id, title }) => ({ title, link: `/#/chapters/${id}` })))
-
-onMounted(async () => {
-  try {
-    $q.loading.show();
-    await chaptersStore.fetchData()
-  } catch (error) {
-
-  } finally {
-    $q.loading.hide()
-  }
-});
 </script>
+
+<style>
+.q-item__label {
+  font-size: 1.1rem;
+}
+
+.q-page {
+  padding: 2rem;
+}
+
+.q-page p {
+  font-size: 1.3rem;
+}
+</style>
