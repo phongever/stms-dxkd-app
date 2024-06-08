@@ -1,0 +1,57 @@
+{
+  "items": [
+    {
+      "fields": {
+        "title": "Test",
+        "chapters": [
+          {
+            "sys": {
+              "id": "1"
+            }
+          },
+          {
+            "sys": {
+              "id": "2"
+            }
+          },
+          {
+            "sys": {
+              "id": "3"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "includes": {
+    "Entry": [
+      {
+        "fields": {
+          "content": "content 1",
+          "title": "title 1"
+        },
+        "sys": {
+          "id": "1"
+        }
+      },
+      {
+        "fields": {
+          "content": "content 2",
+          "title": "title 2"
+        },
+        "sys": {
+          "id": "2"
+        }
+      },
+      {
+        "fields": {
+          "content": "content 3",
+          "title": "title 3"
+        },
+        "sys": {
+          "id": "3"
+        }
+      }
+    ]
+  }
+}

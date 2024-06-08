@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { useQuasar } from "quasar"
+import { useQuasar } from "quasar";
 import { useChaptersStore } from "src/stores/chapters";
 import { onMounted } from "vue";
 
@@ -16,17 +16,15 @@ defineOptions({
 
 const chaptersStore = useChaptersStore();
 
-const $q = useQuasar()
-
+const $q = useQuasar();
 
 onMounted(async () => {
   try {
     $q.loading.show();
-    await chaptersStore.fetchData()
+    await chaptersStore.fetchData();
   } catch (error) {
-
   } finally {
-    $q.loading.hide()
+    $q.loading.hide();
   }
 });
 </script>

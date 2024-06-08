@@ -2,7 +2,14 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar class="bg-grey-9">
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="toggleLeftDrawer"
+        />
 
         <q-toolbar-title> Sóng to mặc sóng, đường xa kệ đường </q-toolbar-title>
       </q-toolbar>
@@ -18,7 +25,11 @@
         <q-separator />
         <q-item-label header> Mục lục </q-item-label>
 
-        <ChapterLink v-for="chapter in linkList" :key="chapter.title" v-bind="chapter" />
+        <ChapterLink
+          v-for="chapter in linkList"
+          :key="chapter.title"
+          v-bind="chapter"
+        />
       </q-list>
     </q-drawer>
 
@@ -45,7 +56,12 @@ function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
 
-const linkList = computed(() => chaptersStore.chapterList.map(({ id, title }) => ({ title, link: `/#/chapters/${id}` })))
+const linkList = computed(() =>
+  chaptersStore.chapterList.map(({ id, title }) => ({
+    title,
+    link: `/#/chapters/${id}`,
+  }))
+);
 </script>
 
 <style>
