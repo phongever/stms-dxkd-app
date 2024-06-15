@@ -1,5 +1,6 @@
 import { setActivePinia, createPinia } from "pinia";
-import { useChaptersStore, ResponseData } from "@/stores/chapters";
+import { useChaptersStore } from "@/stores/chapters";
+import type { ResponseData } from "@/stores/chapters";
 import {
   MockInstance,
   afterEach,

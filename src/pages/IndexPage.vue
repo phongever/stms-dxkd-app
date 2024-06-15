@@ -6,9 +6,9 @@
 </template>
 
 <script setup lang="ts">
-import { useQuasar } from "quasar";
 import { useChaptersStore } from "src/stores/chapters";
 import { onMounted } from "vue";
+import { useQuasar } from "quasar"
 
 defineOptions({
   name: "IndexPage",
@@ -16,15 +16,20 @@ defineOptions({
 
 const chaptersStore = useChaptersStore();
 
-const $q = useQuasar();
+const $q = useQuasar()
 
 onMounted(async () => {
-  try {
-    $q.loading.show();
-    await chaptersStore.fetchData();
-  } catch (error) {
-  } finally {
-    $q.loading.hide();
-  }
+  await fetchData()
 });
+
+const fetchData = async () => {
+  try {
+    $q.loading.show()
+    await chaptersStore.fetchData()
+  } catch {
+
+  } finally {
+    $q.loading.hide()
+  }
+}
 </script>

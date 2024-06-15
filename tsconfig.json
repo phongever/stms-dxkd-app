@@ -1,7 +1,12 @@
 {
   "extends": "@quasar/app-vite/tsconfig-preset",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "boot/*": ["src/boot/*"],
+      "stores/*": ["src/stores/*"]
+    }
   },
   "exclude": [
     "./dist",
@@ -9,6 +14,7 @@
     "./node_modules",
     "./src-capacitor",
     "./src-cordova",
-    "./quasar.config.*.temporary.compiled*"
+    "./quasar.config.*.temporary.compiled*",
+    "./test/vitest"
   ]
 }

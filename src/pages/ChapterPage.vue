@@ -6,11 +6,10 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
+import { ref, watchEffect } from "vue";
 import { useRoute } from "vue-router";
 import { Chapter, useChaptersStore } from "src/stores/chapters";
 import markdownit from "markdown-it";
-import { useQuasar } from "quasar";
 
 defineOptions({
   name: "ChapterPage",
@@ -30,33 +29,12 @@ const DEFAULT_CHAPTER = {
 
 const chapter = ref<Chapter | undefined>(DEFAULT_CHAPTER);
 
-const $q = useQuasar();
-
-onMounted(async () => {
-  try {
-    $q.loading.show();
-
-    await chaptersStore.fetchData();
-
-    const currentChapter =
-      chaptersStore.chapterById(route.params.id) ?? DEFAULT_CHAPTER;
-    currentChapter.content = md.render(currentChapter.content ?? "");
-    chapter.value = currentChapter;
-  } catch (error) {
-  } finally {
-    $q.loading.hide();
-  }
-});
-
-watch(
-  () => route.params.id,
-  (id) => {
-    const currentChapter =
-      chaptersStore.chapterById(id) ??
-      DEFAULT_CHAPTER;
-    currentChapter.content = md.render(currentChapter.content ?? "");
-    chapter.value = currentChapter;
-  },
-  { immediate: true }
-);
+watchEffect(() => {
+  const currentChapter =
+    chaptersStore.chapterById(route.params.id as string) ??
+    DEFAULT_CHAPTER;
+  console.log(currentChapter)
+  currentChapter.content = md.render(currentChapter.content ?? "");
+  chapter.value = currentChapter;
+})
 </script>
