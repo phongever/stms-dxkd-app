@@ -4,8 +4,6 @@ import { installQuasarPlugin } from "@quasar/quasar-app-extension-testing-unit-v
 import MainLayout from "@/layouts/MainLayout.vue";
 import { createPinia, setActivePinia } from "pinia";
 
-installQuasarPlugin();
-
 const pinia = createPinia();
 
 setActivePinia(pinia);
