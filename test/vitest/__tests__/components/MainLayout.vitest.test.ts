@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it, vi } from "vitest";
 import { installQuasarPlugin } from "@quasar/quasar-app-extension-testing-unit-vitest";
-import MainLayout from "layouts/MainLayout.vue";
+import MainLayout from "@/layouts/MainLayout.vue";
 import { createPinia, setActivePinia } from "pinia";
 
 installQuasarPlugin();

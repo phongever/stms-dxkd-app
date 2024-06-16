@@ -26,4 +26,7 @@ export default defineConfig({
     indexHtmlFile: "test/cypress/support/component-index.html",
     devServer: injectQuasarDevServerConfig(),
   },
+  env: {
+    API: "https://cdn.contentful.com/spaces/toyrnoec9oq8/environments/master/entries*",
+  },
 });

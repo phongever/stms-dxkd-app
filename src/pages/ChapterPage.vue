@@ -1,12 +1,12 @@
 <template>
-  <q-page class="row items-center justify-evenly">
+  <q-page class="column items-center justify-evenly">
     <h1>{{ chapter?.title }}</h1>
-    <p v-html="chapter?.content"></p>
+    <p v-html="chapterContent"></p>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from "vue";
+import { computed, ref, watchEffect } from "vue";
 import { useRoute } from "vue-router";
 import { Chapter, useChaptersStore } from "src/stores/chapters";
 import markdownit from "markdown-it";
@@ -33,8 +33,9 @@ watchEffect(() => {
   const currentChapter =
     chaptersStore.chapterById(route.params.id as string) ??
     DEFAULT_CHAPTER;
-  console.log(currentChapter)
-  currentChapter.content = md.render(currentChapter.content ?? "");
+
   chapter.value = currentChapter;
 })
+
+const chapterContent = computed(() => md.render(chapter.value?.content ?? DEFAULT_CHAPTER.content))
 </script>

@@ -45,7 +45,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
 import { useChaptersStore } from "stores/chapters";
-import ChapterLink from "components/ChapterLink.vue";
+import ChapterLink from "@/components/ChapterLink.vue";
 import { Chapter } from "@/stores/chapters";
 import { useQuasar } from "quasar";
 
@@ -74,7 +74,8 @@ const linkList = computed(() =>
 
 const fetchData = async () => {
   try {
-    $q.loading.show()
+    $q.loading.show();
+
     await chaptersStore.fetchData()
   } catch {
     confirm.value = true
