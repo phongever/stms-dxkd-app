@@ -10,7 +10,9 @@
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "vitest",
     "dev": "quasar dev",
+    "dev:android": "quasar dev -m capacitor -T android",
     "build": "quasar build",
+    "build:android": "quasar build -m capacitor -T android",
     "test:unit:ui": "vitest --ui --coverage",
     "test:unit": "vitest --coverage",
     "test:unit:ci": "vitest run --coverage",
@@ -31,6 +33,7 @@
   },
   "devDependencies": {
     "@quasar/app-vite": "^1.9.0",
+    "@quasar/cli": "^2.4.1",
     "@quasar/icongenie": "^4.0.0",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^6.1.0",
     "@quasar/quasar-app-extension-testing-unit-vitest": "^1.0.0",

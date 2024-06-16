@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Sóng to mặc sóng, đường xa kệ đường</string>
+    <string name="title_activity_main">Sóng to mặc sóng, đường xa kệ đường</string>
+    <string name="package_name">xyz.phongever.stms_dxkd</string>
+    <string name="custom_url_scheme">xyz.phongever.stms_dxkd</string>
+</resources>
