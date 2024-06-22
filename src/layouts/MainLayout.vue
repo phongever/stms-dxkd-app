@@ -46,7 +46,7 @@
 import { ref, computed, onMounted } from "vue";
 import { useChaptersStore } from "stores/chapters";
 import ChapterLink from "components/ChapterLink.vue";
-import { Chapter } from "@/stores/chapters";
+import { Chapter } from "stores/chapters";
 import { useQuasar } from "quasar";
 
 defineOptions({

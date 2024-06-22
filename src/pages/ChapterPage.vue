@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from "vue";
 import { useRoute } from "vue-router";
-import { Chapter, useChaptersStore } from "src/stores/chapters";
+import { Chapter, useChaptersStore } from "stores/chapters";
 import markdownit from "markdown-it";
 
 defineOptions({

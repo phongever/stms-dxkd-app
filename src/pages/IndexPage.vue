@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { useChaptersStore } from "src/stores/chapters";
+import { useChaptersStore } from "stores/chapters";
 import { onMounted } from "vue";
 import { useQuasar } from "quasar"
 

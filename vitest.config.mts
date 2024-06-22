@@ -36,6 +36,12 @@ export default defineConfig({
     tsconfigPaths(),
   ] as UserConfig["plugins"],
   resolve: {
-    alias: [{ find: "@", replacement: resolve(__dirname, "./src") }],
+    alias: [
+      { find: "@", replacement: resolve(__dirname, "./src") },
+      {
+        find: "components",
+        replacement: resolve(__dirname, "./src/components"),
+      },
+    ],
   },
 });
