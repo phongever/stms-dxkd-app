@@ -31,11 +31,12 @@ const chapter = ref<Chapter | undefined>(DEFAULT_CHAPTER);
 
 watchEffect(() => {
   const currentChapter =
-    chaptersStore.chapterById(route.params.id as string) ??
-    DEFAULT_CHAPTER;
+    chaptersStore.chapterById(route.params.id as string) ?? DEFAULT_CHAPTER;
 
   chapter.value = currentChapter;
-})
+});
 
-const chapterContent = computed(() => md.render(chapter.value?.content ?? DEFAULT_CHAPTER.content))
+const chapterContent = computed(() =>
+  md.render(chapter.value?.content ?? DEFAULT_CHAPTER.content)
+);
 </script>

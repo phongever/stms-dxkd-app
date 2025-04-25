@@ -2,9 +2,19 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar class="bg-grey-9">
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
-
-        <q-toolbar-title> Sóng to mặc sóng, đường xa kệ đường </q-toolbar-title>
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="toggleLeftDrawer"
+        />
+        <q-toggle
+          :modelValue="$q.dark.isActive"
+          :icon="themeIcon"
+          @update:modelValue="toggleTheme"
+        />
       </q-toolbar>
     </q-header>
 
@@ -18,7 +28,11 @@
         <q-separator />
         <q-item-label header> Mục lục </q-item-label>
 
-        <ChapterLink v-for="chapter in linkList" :key="chapter.title" v-bind="chapter" />
+        <ChapterLink
+          v-for="chapter in linkList"
+          :key="chapter.title"
+          v-bind="chapter"
+        />
       </q-list>
     </q-drawer>
 
@@ -35,7 +49,13 @@
 
         <q-card-actions align="right">
           <q-btn flat label="Đóng" color="grey-9" v-close-popup />
-          <q-btn flat label="Thử lại" color="grey-9" v-close-popup @click="fetchData" />
+          <q-btn
+            flat
+            label="Thử lại"
+            color="grey-9"
+            v-close-popup
+            @click="fetchData"
+          />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -57,9 +77,9 @@ const leftDrawerOpen = ref(false);
 
 const chaptersStore = useChaptersStore();
 
-const confirm = ref(false)
+const confirm = ref(false);
 
-const $q = useQuasar()
+const $q = useQuasar();
 
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
@@ -76,18 +96,26 @@ const fetchData = async () => {
   try {
     $q.loading.show();
 
-    await chaptersStore.fetchData()
+    await chaptersStore.fetchData();
   } catch {
-    confirm.value = true
+    confirm.value = true;
   } finally {
-    $q.loading.hide()
+    $q.loading.hide();
   }
-}
+};
 
 onMounted(async () => {
-  await fetchData()
-})
+  console.log();
+  await fetchData();
+});
 
+const toggleTheme = () => {
+  $q.dark.toggle();
+};
+
+const themeIcon = computed(() =>
+  $q.dark.isActive ? "dark_mode" : "light_mode"
+);
 </script>
 
 <style>
