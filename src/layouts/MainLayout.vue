@@ -105,7 +105,6 @@ const fetchData = async () => {
 };
 
 onMounted(async () => {
-  console.log();
   await fetchData();
 });
 
